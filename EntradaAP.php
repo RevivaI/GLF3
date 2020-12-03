@@ -284,7 +284,6 @@ if(isset($_POST['submit7']))
 if(isset($_POST['submit8']))
 {	
 	console_log("Ahora que están listos ambos estados, se almacenarán en sus respectivas variables para continuar con las transiciones y se activa la variable que permite acceder al ingreso de transiciones");
-	print_r($_POST);
 	$ABC1=$_POST['Alfabeto1'];
 	$Estados1=$_POST['arra1'];
 	$ABC2=$_POST['Alfabeto2'];
@@ -339,7 +338,6 @@ if(isset($_POST['submit10']))
     $transa2=unserialize($_POST['transa2']);
     $transaux[0]=$_POST['0'];
     $transaux[1]=$_POST['1'].'/'.$_POST['2'].'/'.$_POST['3'];
-    echo $transaux[1];
     $transaux[2]=$_POST['4'];
     if(count($transa2)==0)
     {
