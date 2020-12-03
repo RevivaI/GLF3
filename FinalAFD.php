@@ -15,7 +15,7 @@ include "ClaseAutomata.php";
   if(isset($_POST['Submit7']))
   {
 
-    console_log("Se reciben correctamente los datos necesarios para crear el automata con todos los datos ingresados que a continuación será mostrado")
+    console_log("Se reciben correctamente los datos necesarios para crear el automata con todos los datos ingresados que a continuación será mostrado");
     $ABC=$_POST['Aux'];//LLEGA ABCD
     $Estados=unserialize($_POST['Estados']);//LLEGA Q0 NO Q1 SI Q2 SI Q3 NO
     $Transa=unserialize($_POST['Transiciones']);//RETORNA destinos q0 q1 q0 q0 q1 q2 q0 q3
@@ -26,7 +26,7 @@ include "ClaseAutomata.php";
 
   $Automata=new Maquina;
  
-    console_log("Se muestra el Automata y su respectivo ER")
+    console_log("Se muestra el Automata y su respectivo ER");
     //$Automata=LlenarAutomata($Automata,$Estados,$Transa,$ABC);
     $Automata=LlenarAutomata2($Automata,$Estados,$Transa,$ABC);
     $Automata->Caracteres=$Automata->Caracteres.'Ɛ';

@@ -58,7 +58,7 @@ if(isset($_POST['submit1']) && isset($_POST['Alfabeto1']) && isset($_POST['Abc1'
       $ABC1=$_POST['Alfabeto1'];
        echo'<html>Ingrese una letra</html>';
     }
-    console_log("Como ha hecho ingreso al alfabeto de el AP 1, se ha guardado la información en distintas variables las cuales volverán a ser enviadas posteriormente con el metodo POST")
+    console_log("Como ha hecho ingreso al alfabeto de el AP 1, se ha guardado la información en distintas variables las cuales volverán a ser enviadas posteriormente con el metodo POST");
 	$ABC2=$ABC2.$_POST['Alfabeto2'];
 	
 	
@@ -88,7 +88,7 @@ $ABC2=$ABC2.$_POST['Alfabeto2'];
       $ABC2=$_POST['Alfabeto2'];
        echo'<html>Ingrese una letra</html>';
     }
-    console_log("Como ha hecho ingreso al alfabeto de el AP 2, se ha guardado la información en distintas variables las cuales volverán a ser enviadas posteriormente con el metodo POST")
+    console_log("Como ha hecho ingreso al alfabeto de el AP 2, se ha guardado la información en distintas variables las cuales volverán a ser enviadas posteriormente con el metodo POST");
 	$ABC1=$ABC1.$_POST['Alfabeto1'];
 }
 if(isset($_POST['submit3']) && isset($_POST['ABC1']) && isset($_POST['ABC2']))
@@ -96,12 +96,12 @@ if(isset($_POST['submit3']) && isset($_POST['ABC1']) && isset($_POST['ABC2']))
 	$ABC1=$_POST['ABC1'];
 	$ABC2=$_POST['ABC2'];
 	$Inicio=1;
-	console_log("Dado que clickeo en Siguiente, se han almacenado ambos alfabetos y se ha habilitado la variable que permite continuar con el ingreso de los estados iniciales")
+	console_log("Dado que clickeo en Siguiente, se han almacenado ambos alfabetos y se ha habilitado la variable que permite continuar con el ingreso de los estados iniciales");
 
 }
 if(isset($_POST['submit4']) && isset($_POST['Alfabeto1']) && isset($_POST['Alfabeto2']) && isset($_POST['EI1']))
 {
-	console_log("Ha ingresado contenido en el estado inicial de AP1 que será evaluado a continuación para ver si es valido y agregarlo")
+	console_log("Ha ingresado contenido en el estado inicial de AP1 que será evaluado a continuación para ver si es valido y agregarlo");
     $ABC1=$_POST['Alfabeto1'];
     $ABC2=$_POST['Alfabeto2'];
     $EI2=$_POST['EI2'];
@@ -136,7 +136,7 @@ if(isset($_POST['submit4']) && isset($_POST['Alfabeto1']) && isset($_POST['Alfab
  }
 if(isset($_POST['submit5']) && isset($_POST['Alfabeto1']) && isset($_POST['Alfabeto2']) && isset($_POST['EI2']))
 {
-	console_log("Ha ingresado contenido en el estado inicial de AP2 que será evaluado a continuación para ver si es valido y agregarlo")
+	console_log("Ha ingresado contenido en el estado inicial de AP2 que será evaluado a continuación para ver si es valido y agregarlo");
 
 	$ABC1=$_POST['Alfabeto1'];
     $ABC2=$_POST['Alfabeto2'];
@@ -171,7 +171,7 @@ if(isset($_POST['submit5']) && isset($_POST['Alfabeto1']) && isset($_POST['Alfab
 }
 if($Key1==1 && $Key2==1)
 {
-	console_log("Ya que están ingresados ambos estados iniciales, se prosigue a activar la variable que habilita el ingreso del resto de los estados")
+	console_log("Ya que están ingresados ambos estados iniciales, se prosigue a activar la variable que habilita el ingreso del resto de los estados");
 	$Inicio=2;
 	//$EIFBool1; seteados
 	//$EIFBool2; seteados
@@ -387,10 +387,10 @@ if($Inicio==0)
 				</form>
 			
 		</th>';
-		console_log(" Se realiza una evaluación si hay contenido en el alfabeto, en caso de haberlo se desplegará y de haber contenido en ambos se habilitará el boton para continuar con el ingreso de los automatas.")
+		console_log(" Se realiza una evaluación si hay contenido en el alfabeto, en caso de haberlo se desplegará y de haber contenido en ambos se habilitará el boton para continuar con el ingreso de los automatas.");
 	if($ABC1!="" || $ABC2!="")
 	{
-		console_log("evaluando hay contenido en el Alfabeto de 1 o en el de 2, por lo que se desplegará el contenido ingresado, y será evaluado a continuación si es que ambos tienen contenido, en caso de tenerlos habilitará el botón para poder continuar con el ingreso del automata")
+		console_log("evaluando hay contenido en el Alfabeto de 1 o en el de 2, por lo que se desplegará el contenido ingresado, y será evaluado a continuación si es que ambos tienen contenido, en caso de tenerlos habilitará el botón para poder continuar con el ingreso del automata");
 	 	echo'
 	 	<tr>
 	 		<th colspan="2">Alfabeto AP1 : '.$ABC1.'</th>
@@ -404,7 +404,7 @@ if($Inicio==0)
 	 			<th>';
 	 			if($ABC1!="" && $ABC2!="")
 	 			{
-	 				console_log("como existe contenido en ambos alfabetos, se habilitó el botón siguiente")
+	 				console_log("como existe contenido en ambos alfabetos, se habilitó el botón siguiente");
 	 				echo '<form action="" method="post" >
 	 			<input type="hidden" name="ABC1" value='.$ABC1.'>
 	 			<input type="hidden" name="ABC2" value='.$ABC2.'>
@@ -424,7 +424,7 @@ if($Inicio==0)
 }
 if($Inicio==1)
 {
-	console_log("Ahora se muestra el cuadro de ingreso de los estados iniciales del automata, para poder almacenarlos de forma distinta al resto de los estados, una vez ingrese alguno de los 2 estados iniciales, se bloqueará el ingreso de este, y quedará unicamente habilitado el del automata que aun no tiene agregado su estado inicial.")
+	console_log("Ahora se muestra el cuadro de ingreso de los estados iniciales del automata, para poder almacenarlos de forma distinta al resto de los estados, una vez ingrese alguno de los 2 estados iniciales, se bloqueará el ingreso de este, y quedará unicamente habilitado el del automata que aun no tiene agregado su estado inicial.");
 	echo'<html>
 	<table>
 		<th><table border="3">
@@ -470,7 +470,7 @@ if($Inicio==1)
 				else
 			{
 				echo' <td colspan="3"><h3>PRIMER ESTADO AGREGADO</h3></td>';
-				console_log("Ha sido ingresado correctamente el estado inicial del AP2 y se bloquea su entrada")
+				console_log("Ha sido ingresado correctamente el estado inicial del AP2 y se bloquea su entrada");
 			}
 				
 			
@@ -495,7 +495,7 @@ if($Inicio==1)
 }
 if($Inicio==2)
 {
-	console_log("En este paso se almacenará los estados que agregue y si es finalizado, con el metodo POST y al igual que anteriormente con inputs hiddens, se envia la información anteriormente almacenada para su posterior uso.")
+	console_log("En este paso se almacenará los estados que agregue y si es finalizado, con el metodo POST y al igual que anteriormente con inputs hiddens, se envia la información anteriormente almacenada para su posterior uso.");
  echo'<html>
 	<table>
 		<th><table border="23">
@@ -561,7 +561,7 @@ if($Inicio==2)
 }
 if($Inicio==3)
 {
-console_log("Ahora de la misma forma que los ingresos anteriores, segun el automata al que le agregue transiciones se irá almacenando y enviando los contenidos anteriormente agregados")
+console_log("Ahora de la misma forma que los ingresos anteriores, segun el automata al que le agregue transiciones se irá almacenando y enviando los contenidos anteriormente agregados");
 console_log("Ingrese transicion o en caso de ya haber ingresado todas, haga click en Finalizar Automata para enviar todo el contenido agregado anteriormente a FinalAFD.php con en el metodo POST");
   echo "<h1>A partir del Alfabeto de entrada, añada transiciones del automata de la forma :<h1>
   <h2>Estado --- (Letra que consume / Extracción de pila / Ingreso de pila) --- Estado de destino</h2>
