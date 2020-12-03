@@ -43,6 +43,28 @@ function HazTodo(e)
   return ewe;
 
 }
+function HazTodo2(e)
+{
+  var ewe=new maquina;
+
+  for(var i=0;i<e.Estados.length;i++)
+  {
+    setEstados(ewe,e.Estados[i].Caracter);
+    for(var j=0;j<e.Estados[i].Nomb_estados.length;j++)
+    {
+      setOpciones(ewe,e.Estados[i].Caracter,e.Estados[i].Opciones[j],e.Estados[i].Nomb_estados[j]);
+    }
+  }
+
+
+  ewe.caracteres=e.Caracteres.split('');
+  ewe.est_final=e.Est_Final;
+  ewe.est_inicial=e.Est_Inicial;
+  
+
+  return ewe;
+
+}
 function CreaTabla(e,o)
 {
 
@@ -69,8 +91,8 @@ function CreaTabla(e,o)
     aux+="<th>"+e.estados[k].caracter+"</th><th><table border 1>";
     for(l=0;l<e.estados[k].opciones.length;l++)
     {
-      console.log(e);
-      aux+="<th>&nbsp;&nbsp;&nbsp;&nbsp;"+e.estados[l].opciones[k]+"&nbsp;&nbsp;&nbsp;&nbsp;</th><th>→</th><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+e.estados[l].nomb_estados[k]+"&nbsp;&nbsp;&nbsp;&nbsp;</th><tr>";
+      
+      aux+="<th>&nbsp;&nbsp;&nbsp;&nbsp;"+e.estados[k].opciones[l]+"&nbsp;&nbsp;&nbsp;&nbsp;</th><th>→</th><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+e.estados[k].nomb_estados[l]+"&nbsp;&nbsp;&nbsp;&nbsp;</th><tr>";
     }
     aux+="</tr></table></tr>";
   }
@@ -81,12 +103,11 @@ function CreaTabla2(a,e1)
 {
 
 
-    a=HazTodo(a);
-    e1=HazTodo(e1);
-  
-  var e=new maquina();
+    a=HazTodo2(a);
+    e1=HazTodo2(e1);
+    var e=new maquina();
   e=union(a,e1);
- 
+
   var aux;
   aux="<table border 1><tr><th>Alfabeto de entrada</th><th>";
   for(var i=0;i<e.caracteres.length;i++)
@@ -105,8 +126,8 @@ function CreaTabla2(a,e1)
     aux+="<th>"+e.estados[k].caracter+"</th><th><table border 1>";
     for(l=0;l<e.estados[k].opciones.length;l++)
     {
-      console.log(e);
-      aux+="<th>&nbsp;&nbsp;&nbsp;&nbsp;"+e.estados[l].opciones[k]+"&nbsp;&nbsp;&nbsp;&nbsp;</th><th>→</th><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+e.estados[l].nomb_estados[k]+"&nbsp;&nbsp;&nbsp;&nbsp;</th><tr>";
+  
+      aux+="<th>&nbsp;&nbsp;&nbsp;&nbsp;"+e.estados[k].opciones[l]+"&nbsp;&nbsp;&nbsp;&nbsp;</th><th>→</th><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+e.estados[k].nomb_estados[l]+"&nbsp;&nbsp;&nbsp;&nbsp;</th><tr>";
     }
     aux+="</tr></table></tr>";
   }
@@ -117,8 +138,8 @@ function CreaTabla3(a,e1)
 {
 
  
-    a=HazTodo(a);
-    e1=HazTodo(e1);
+    a=HazTodo2(a);
+    e1=HazTodo2(e1);
   
   var e=new maquina();
   e=concatenacion(a,e1);
@@ -141,8 +162,8 @@ function CreaTabla3(a,e1)
     aux+="<th>"+e.estados[k].caracter+"</th><th><table border 1>";
     for(l=0;l<e.estados[k].opciones.length;l++)
     {
-      console.log(e);
-      aux+="<th>&nbsp;&nbsp;&nbsp;&nbsp;"+e.estados[l].opciones[k]+"&nbsp;&nbsp;&nbsp;&nbsp;</th><th>→</th><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+e.estados[l].nomb_estados[k]+"&nbsp;&nbsp;&nbsp;&nbsp;</th><tr>";
+     
+      aux+="<th>&nbsp;&nbsp;&nbsp;&nbsp;"+e.estados[k].opciones[l]+"&nbsp;&nbsp;&nbsp;&nbsp;</th><th>→</th><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+e.estados[k].nomb_estados[l]+"&nbsp;&nbsp;&nbsp;&nbsp;</th><tr>";
     }
     aux+="</tr></table></tr>";
   }
@@ -388,8 +409,8 @@ function union(maquina1,maquina2){ //hacer funcion que verifique el alfbeto
   var aux=maquina1;
   var aux2=new estado();
   aux2.caracter="#1";
-  aux2.opciones.push("ε/ε/ε");
-  aux2.opciones.push("ε/ε/ε");
+  aux2.opciones.push("Ɛ/Ɛ/Ɛ");
+  aux2.opciones.push("Ɛ/Ɛ/Ɛ");
   aux2.nomb_estados.push(maquina1.est_inicial);
   aux2.nomb_estados.push(maquina2.est_inicial);
   for(var i=0;i<maquina2.estados.length;i++){
@@ -407,16 +428,16 @@ function concatenacion(maquina1,maquina2){
   var aux=maquina1;
   var ini=new estado();
   ini.caracter="#1";
-  ini.opciones.push("ε/ε/p");
+  ini.opciones.push("Ɛ/Ɛ/p");
   ini.nomb_estados.push(maquina1.est_inicial);
   aux.est_inicial=ini.caracter;
   aux.estados.push(ini);
   var conc=new estado();
   conc.caracter="#2";
-  conc.opciones.push("ε/ε/ε");
+  conc.opciones.push("Ɛ/Ɛ/Ɛ");
   conc.nomb_estados.push(maquina2.est_inicial);
   for(var i=0;i<maquina1.est_final.length;i++){
-    maquina1.estados[buscarE(maquina1,maquina1.est_final[i])].opciones.push("ε/p/ε");
+    maquina1.estados[buscarE(maquina1,maquina1.est_final[i])].opciones.push("Ɛ/p/Ɛ");
     maquina1.estados[buscarE(maquina1,maquina1.est_final[i])].nomb_estados.push(conc.caracter);
   }
   aux.estados.push(conc);
